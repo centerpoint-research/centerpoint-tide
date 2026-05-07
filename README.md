@@ -103,29 +103,52 @@ docker login gitlab-registry.nrp-nautilus.io
 ```bash
 docker pull gitlab-registry.nrp-nautilus.io/centerpoint-research/centerpoint-tide:v1
 ```
-
+This workflow is primarily intended for local validation or external development environments.  
+On TIDE/Nautilus, Kubernetes typically pulls the image automatically when launching the pod.
 ---
 
 ## Running on TIDE / Nautilus
 
-Configure your TIDE Kubernetes pod to use:
+The container image is intended to be used as the pod image for a TIDE / Nautilus Kubernetes workload.
+
+Current image:
 
 ```text
 gitlab-registry.nrp-nautilus.io/centerpoint-research/centerpoint-tide:v1
 ```
 
-After pod startup:
+### JupyterHub Workflow
 
-```bash
-docker run --gpus all -it \
-    gitlab-registry.nrp-nautilus.io/centerpoint-research/centerpoint-tide:v1
+In most TIDE workflows, Docker is not run directly inside the notebook pod.
+
+Instead:
+
+1. JupyterHub launches a Kubernetes pod
+2. Kubernetes pulls the container image from the NRP GitLab Registry
+3. The user works directly inside the preconfigured environment
+
+### Kubernetes Namespace Workflow
+
+If the project has Kubernetes namespace access, the image can be referenced directly in a pod/job/deployment manifest:
+
+```yaml
+containers:
+  - name: centerpoint
+    image: gitlab-registry.nrp-nautilus.io/centerpoint-research/centerpoint-tide:v1
 ```
 
+See:
+
+```text
+docs/tide_usage.md
+```
+
+for additional details regarding namespace workflows, image selection, and Kubernetes access.
 ---
 
 ## Runtime Setup
 
-Some OpenPCDet components may require runtime compilation depending on mounted storage, editable installs, or CUDA extension behavior.
+After the pod launches, OpenPCDet may require runtime compilation or validation depending on mounted storage, editable installs, and CUDA extension behavior.
 
 Run the helper script:
 
@@ -133,8 +156,13 @@ Run the helper script:
 bash scripts/compile_openpcdet.sh
 ```
 
-This script recompiles OpenPCDet CUDA extensions and validates environment dependencies.
+This script:
 
+- validates GPU visibility
+- verifies PyTorch CUDA support
+- checks SpConv imports
+- recompiles OpenPCDet extensions if necessary
+- verifies PCDet imports
 ---
 
 ## Verifying Installation
