@@ -105,7 +105,6 @@ docker pull gitlab-registry.nrp-nautilus.io/centerpoint-research/centerpoint-tid
 ```
 This workflow is primarily intended for local validation or external development environments.  
 On TIDE/Nautilus, Kubernetes typically pulls the image automatically when launching the pod.
----
 
 ## Running on TIDE / Nautilus
 
@@ -144,7 +143,6 @@ docs/tide_usage.md
 ```
 
 for additional details regarding namespace workflows, image selection, and Kubernetes access.
----
 
 ## Runtime Setup
 
