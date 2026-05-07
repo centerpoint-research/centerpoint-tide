@@ -1,0 +1,73 @@
+# Git metadata
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.env/
+conda-env/
+*.env
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Model checkpoints
+*.pth
+*.ckpt
+*.pt
+
+# Dataset directories
+data/
+datasets/
+kitti/
+nuscenes/
+waymo/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# VSCode
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Docker artifacts
+*.tar
+
+# NVIDIA / CUDA cache
+.nv/
+.cache/
+
+# Large research outputs
+outputs/
+results/
+experiments/
+wandb/
+
+# Notebook exports
+*.html
+*.pdf
+
+# Misc
+*.swp
