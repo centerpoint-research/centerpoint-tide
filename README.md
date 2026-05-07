@@ -238,7 +238,7 @@ If GPUs are not visible:
 ### Clone Repository
 
 ```bash
-git clone https://github.com/<your-org>/centerpoint-tide.git
+git clone https://github.com/centerpoint-research/centerpoint-tide.git
 cd centerpoint-tide
 ```
 
@@ -291,20 +291,6 @@ for detailed solutions.
 
 ---
 
-## Future Work
-
-Planned improvements include:
-
-- Automated runtime initialization
-- Distributed multi-GPU training
-- Dataset mounting automation
-- CenterPoint benchmarking workflows
-- Evaluation and visualization tooling
-- Kubernetes job automation
-- Experiment tracking integration
-
----
-
 ## Credits / References
 
 ### Frameworks
@@ -316,18 +302,11 @@ Planned improvements include:
 
 ### Infrastructure
 
-- SDSU Autonomy Research Center (ARCS)
+- CSUN Autonomy Research Center (ARCS)
 - SDSU TIDE Cluster
 - NRP Nautilus
 
 ### References
 
 - OpenPCDet: https://github.com/open-mmlab/OpenPCDet
-- CenterPoint Paper: https://arxiv.org/abs/2006.11275
 - NRP Nautilus Documentation: https://nrp.ai/documentation/
-
----
-
-## License
-
-This repository is intended for research and educational use.
